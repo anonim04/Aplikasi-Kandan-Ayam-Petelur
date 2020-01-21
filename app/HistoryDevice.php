@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class NumberEgg extends Model
+class HistoryDevice extends Model
 {
     protected $fillable = [
-        'user_id', 'lots_egg'
+        'user_id', 'communication_app_nodemcus_id'
     ];
 }

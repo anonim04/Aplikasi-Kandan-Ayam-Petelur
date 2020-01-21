@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function numberEgg(){
+        return $this->hasMany(NumberEgg::class);
+    }
+
+    public function historyDevices(){
+        return $this->hasMany(HistoryDevice::class);
+    }
 }

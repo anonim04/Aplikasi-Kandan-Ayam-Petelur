@@ -2,9 +2,10 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Routing\Matching\SchemeValidator;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHistoryFeedsTable extends Migration
+class CreateCommunicationAppNodemcusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +14,10 @@ class CreateHistoryFeedsTable extends Migration
      */
     public function up()
     {
-        Schema::create('history_feeds', function (Blueprint $table) {
+        Schema::create('communication_app_nodemcus', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('device');
+            $table->enum('turn',['on','off']);
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateHistoryFeedsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('history_feeds');
+        Schema::dropIfExists('communication_app_nodemcus');
     }
 }

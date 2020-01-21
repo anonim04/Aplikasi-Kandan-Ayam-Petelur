@@ -11,6 +11,8 @@
 |
 */
 
+
+
 Route::get('/', function () {
     return redirect()->route('login');
 });
@@ -19,8 +21,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/user', 'auth\UserController@index')->name('user.index');
-
-Route::get('/control/{request}', 'HomeController@controlDevice')->name('control.device');
+Route::get('/user', 'Auth\UserController@index')->name('user.index');
 
 Route::post('/store/number/egg', 'HomeController@numberEgg')->name('number.egg');
+
+Route::get('/device/status/{status}', 'CommunicationDeviceController@statusDevice')->name('status.device');
+
+Route::get('/run/device/{id}', 'CommunicationDeviceController@RunDevice')->name('run.device');

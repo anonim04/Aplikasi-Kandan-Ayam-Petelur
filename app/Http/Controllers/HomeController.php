@@ -12,10 +12,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -29,19 +29,5 @@ class HomeController extends Controller
 
     public function numberEgg(Request $request){
         route('send',['request'=>'']);
-    }
-
-    public function controlDevice($request){
-        if($request=="feed"){
-            route('send',['request'=>'feed']);
-            return redirect('home')->with('success','Alat Telah Dijalankan');
-        }
-        elseif($request=="water"){
-            route('send',['request'=>'water']);
-            return redirect('home')->with('success','Alat Telah Dijalankan');
-        }
-        else{
-
-        }
     }
 }

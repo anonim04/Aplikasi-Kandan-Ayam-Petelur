@@ -1,11 +1,14 @@
 @extends('layouts.app')
-@if(session('success'))
+@section('content')
+@php
+    $token = Session()->get('_token');
+@endphp
+@if(session('status'))
 <div class="notification">
     <button class="delete"></button>
-    <strong>{{ session('success')}}</strong>
+    <strong>{{ session('status')}}</strong>
   </div>
 @endif
-@section('content')
 <div class="field is-grouped is-grouped-centered">
     <h1 class="title has-text-weight-bold">Smart Chicken Coop</h1>
 </div>
@@ -25,7 +28,7 @@
     </p>
 </div>
 <div class="field is-grouped is-grouped-centered">
-    <a class="button is-large" name="buttonFeed" href="{{route('control.device',['request'=>'feed'])}}">
+    <a class="button is-large" href="{{route('run.device',['id'=>'1'])}}">
         <span class="icon">
             <img src="https://img.icons8.com/color/30/000000/lucky-eggs.png">
         </span>
@@ -34,7 +37,7 @@
         </span>
     </a>
     <div class="buttons has-addons">
-        <a class="button is-large" href="{{route('control.device',['request'=>'water'])}}">
+        <a class="button is-large" href="{{route('run.device',['id'=>'2'])}}">
             <span class="icon">
                 <img src="https://img.icons8.com/color/30/000000/lucky-eggs.png">
             </span>
