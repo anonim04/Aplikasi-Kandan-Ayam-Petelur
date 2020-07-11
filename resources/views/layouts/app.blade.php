@@ -18,7 +18,9 @@
             <nav class="navbar has-shadow is-mobile is-black">
                 <div class="container">
                     <div class="navbar-brand">
-                        <a href="{{ url('/') }}" class="navbar-item">{{ config('app.name', 'Laravel') }}</a>
+                        <a class="navbar-item">
+                            <img src="{{ asset('img/imageedit_1_5802154130.png') }}" width="35" height="100">
+                          </a>
 
                         <div class="navbar-burger burger" data-target="navMenu">
                             <span></span>
@@ -29,7 +31,7 @@
 
                     <div class="navbar-menu" id="navMenu">
                         <div class="navbar-start">
-                            <a href="#" class="navbar-item">
+                            <a href="{{route('home')}}" class="navbar-item">
                                 <span class="icon">
                                     <i class="fas fa-home"></i>
                                 </span>
@@ -37,21 +39,22 @@
                                     Home
                                 </span>
                             </a>
-                            <a href="{{route('home')}}" class="navbar-item">
-                                <span class="icon">
-                                    <i class="fas fa-users"></i>
-                                </span>
-                                <span>
-                                    User
-                                </span>
-                            </a>
+                            @if (Auth::guest()==false)
+                                <a href="{{route('user.index')}}" class="navbar-item">
+                                    <span class="icon">
+                                        <i class="fas fa-users"></i>
+                                    </span>
+                                    <span>
+                                        User
+                                    </span>
+                                </a>
+                            @endif
                         </div>
 
 
                         <div class="navbar-end">
                             @if (Auth::guest())
                                 <a class="navbar-item " href="{{ route('login') }}">Login</a>
-                                <a class="navbar-item " href="{{ route('register') }}">Register</a>
                             @else
                                 <div class="navbar-item has-dropdown is-hoverable">
                                     <a class="navbar-link" href="#">

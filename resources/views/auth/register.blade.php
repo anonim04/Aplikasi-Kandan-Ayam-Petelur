@@ -25,6 +25,27 @@
 
                         <div class="field is-horizontal">
                             <div class="field-label">
+                                <label class="label">Role</label>
+                            </div>
+
+                            <div class="field-body">
+                                <div class="field">
+                                    <p class="control">
+                                        <label class="radio">
+                                                <input type="radio" name="role" value="admin">
+                                                Admin
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="role" value="worker">
+                                                Pekerja
+                                            </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label">
                                 <label class="label">Name</label>
                             </div>
 

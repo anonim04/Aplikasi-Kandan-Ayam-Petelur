@@ -28,7 +28,7 @@
     </p>
 </div>
 <div class="field is-grouped is-grouped-centered">
-    <a class="button is-large" href="{{route('run.device',['id'=>'1'])}}">
+    <a class="button is-large" href="{{route('run.device',['idDevice'=>'1','idUser'=>Auth::user()->id])}}">
         <span class="icon">
             <img src="https://img.icons8.com/color/30/000000/lucky-eggs.png">
         </span>
@@ -37,7 +37,7 @@
         </span>
     </a>
     <div class="buttons has-addons">
-        <a class="button is-large" href="{{route('run.device',['id'=>'2'])}}">
+        <a class="button is-large" href="{{route('run.device',['idDevice'=>'2','idUser'=>Auth::user()->id])}}">
             <span class="icon">
                 <img src="https://img.icons8.com/color/30/000000/lucky-eggs.png">
             </span>
@@ -51,21 +51,27 @@
             </span>
         </button>
         <div id="modalInsertFile" class="modal">
-            {!! Form::open(['route'=>'number.egg' , 'method'=>'post']) !!}
-            {{!! Form::token() !!}}
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head">
                     <p class="modal-card-title">Jumlah Hasil Panen Telur</p>
                     <button class="delete" aria-label="close"></button>
                 </header>
+                {!! Form::open(['route'=>['number.egg', Auth::user()->id] , 'method'=>'post']) !!}
+                {!! Form::token() !!}
                 <section class="modal-card-body">
-
+                    <div class="field">
+                        {!! Form::label('egg', 'Total Hasil Panen Telur', ['class'=>'label']) !!}
+                        <div class="control">
+                            {!! Form::text('lots_egg', '', ['class'=>'input']) !!}
+                        </div>
+                    </div>
                 </section>
                 <footer class="modal-card-foot buttons is-right">
                     <button type="button" class="button button-close-modal" aria-label="close">
                         Cancel
                     </button>
+                    {!! Form::submit('Kirim', ['class'=>'button']) !!}
                 </footer>
             </div>
             {!! Form::close() !!}

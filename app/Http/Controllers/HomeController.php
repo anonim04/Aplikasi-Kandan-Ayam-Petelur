@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Events\StatusFeedWater;
 
@@ -27,7 +28,11 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function numberEgg(Request $request){
-        route('send',['request'=>'']);
+    public function numberEgg(Request $request,$id){
+        $model = User::findOrFail($id);
+        $model->numberEgg()->create([
+            'lots_egg'=>$request->get('lots_egg')
+        ]);
+        return redirect('home');
     }
 }

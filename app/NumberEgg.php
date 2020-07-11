@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class NumberEgg extends Model
 {
-    protected $fillable = [
+    protected $fillable =
+    [
         'user_id', 'lots_egg'
     ];
 }

@@ -12,6 +12,6 @@ class CommunicationAppNodemcu extends Model
     ];
     public function historyDevices()
     {
-        return $this->hasMany(HistoryDevice::class);
+        return $this->belongsToMany(HistoryDevice::class);
     }
 }

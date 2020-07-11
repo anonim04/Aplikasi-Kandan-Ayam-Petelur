@@ -21,10 +21,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/user', 'Auth\UserController@index')->name('user.index');
+Route::get('/user/index', 'Auth\UserController@index')->name('user.index');
 
-Route::post('/store/number/egg', 'HomeController@numberEgg')->name('number.egg');
+Route::post('/store/number/egg/{id}', 'HomeController@numberEgg')->name('number.egg');
 
-Route::get('/device/status/{status}', 'CommunicationDeviceController@statusDevice')->name('status.device');
-
-Route::get('/run/device/{id}', 'CommunicationDeviceController@RunDevice')->name('run.device');
+Route::get('/device/turn/on/{idDevice}/{idUser}','CommunicationDeviceController@runDevice')->name('run.device');
